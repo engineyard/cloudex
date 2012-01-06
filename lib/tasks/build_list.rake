@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'fog'
-require 'statsmix'
+
 task :build_list  => :environment do
 
      @vcloud = ::Fog::Compute.new(:provider => 'ecloud',
