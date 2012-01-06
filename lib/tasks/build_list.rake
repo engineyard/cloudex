@@ -1,9 +1,8 @@
 require 'rubygems'
 require 'fog'
+require 'statsmix'
 task :build_list  => :environment do
 
-   count = 0
-    
      @vcloud = ::Fog::Compute.new(:provider => 'ecloud',
                                     :ecloud_username => 'ctosswill@engineyard.com',
                                     :ecloud_password => 'Th1nkBlu3',
@@ -17,9 +16,9 @@ task :build_list  => :environment do
               disk = s.disks.inject {|sum , n| n[:size] }
               ram = s.memory[:amount]
               vm = Vm.new( :name => s.name , :disk => disk , :ram  => ram )
-              Rails.cache.write( vm.name, vm)
-              count = count + 1
-              break if count == 10
+              Rails.cache.write( vm.name, vm , :expires_in => 6.hours )
+              StatsMix.track('vm', 1)
+              
             end
 
     end

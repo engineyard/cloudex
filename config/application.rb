@@ -11,6 +11,8 @@ end
 
 module Cloudex
   class Application < Rails::Application
+    
+    StatsMix.api_key = '936862e534eeae7887ac'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
