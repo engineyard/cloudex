@@ -13,7 +13,7 @@ gem 'json'
 
 gem 'fog'
 
-gem 'statsmix'
+gem 'mysql2', '~> 0.3'
 
 
 
