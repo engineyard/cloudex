@@ -17,8 +17,6 @@ task :build_list  => :environment do
               ram = s.memory[:amount]
               vm = Vm.new( :name => s.name , :disk => disk , :ram  => ram )
               Rails.cache.write( vm.name, vm , :expires_in => 6.hours )
-              StatsMix.track('vm', 1)
-              
             end
 
     end
