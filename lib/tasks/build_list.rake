@@ -5,7 +5,7 @@ task :build_list  => :environment do
 
      @vcloud = ::Fog::Compute.new(:provider => 'ecloud',
                                     :ecloud_username => 'ctosswill@engineyard.com',
-                                    :ecloud_password => 'Th1nkBlu3',
+                                    :ecloud_password => 'password',
                                     :ecloud_version => '0.8b-ext2.6',
                                     :ecloud_versions_uri => 'https://services.enterprisecloud.terremark.com/api/versions')
 
